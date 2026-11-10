@@ -1,0 +1,63 @@
+<html>
+<head>
+  <title>Data Base</title>
+</head>
+<link href=wb/scripts/data-base.js" rel="scriptsheet"></link>
+<script>
+fetch(/package-lock.json/)
+  .then(response => response.json())
+  .then(data => console.log(data.version));
+</script>
+<style>
+body{
+  font-family:georgia;
+}
+.table,th{
+  border:2px solid black;
+  border-color:#0f0;
+  border-radius:7px 7px 7px 7px;
+  padding:10px;
+}
+.table,td{
+  border:1.5px solid black;
+  border-color:#0ff;
+  color:#000;
+  border-radius:7px 7px 7px 7px;
+}
+</style>
+    <table>
+      <caption>Data Base</caption>
+      <tr>
+        <th><label for="username">Username</label></th>
+        <th>Emails Address</th>
+        <th><label for="password">Password</label></th>
+        <th>Phone Number</th>
+        <th><lable for="id">ID</lable></th>
+      </tr>
+      
+      <tr>
+        <td>Simion Wahengbam</td>
+        <td>simionwahengbam@gmail.com</td>
+        <td>simion2sama6</td>
+        <td>7628856276</td>
+        <td>100.100.100:1001</td>
+      </tr>
+      
+        <tr>
+          <td>Gracyz Thoujalbi Wahengbam</td>
+        <td>gracyzthoujalbi@gmail.com</td>
+        <td>gracy20z</td>
+          <td>8837459091</td>
+          <td>100.100.100:1002</td>
+      </tr>
+     
+      <tr>
+        <td>Gladys Yaiphabi Wahengabm</td>
+        <td>gladysyaiphabi@gmail.com</td>
+        <td>gladys9091yaipha</td>
+        <td>8837459091</td>
+        <td>100.100.100:1003</td>
+      </tr>
+    </table
+</body>
+</html>

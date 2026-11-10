@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Node JSON API</title>
+  <style>
+    body { font-family: serif; max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background: #f2f2f2; }
+    input, button { padding: 8px; font-size: 14px; margin-right: 5px; }
+    button { cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h2>Query JSON via Node</h2>
+  <input type="text" id="searchName" placeholder="Name">
+  <input type="text" id="searchRole" placeholder="Role">
+  <button onclick="search()">Search</button>
+  <button onclick="loadAll()">Show All</button>
+
+  <div id="results"></div>
+
+  <script>
+    const API_URL = 'http://localhost:29000/api';
+
+    function renderTable(data) {
+      if (data.length === 0) {
+        document.getElementById('results').innerHTML = 'No results';
+        return;
+      }
+
+      let html = '<table><thead><tr>';
+      Object.keys(data[0]).forEach(key => html += `<th>${key}</th>`);
+      html += '</tr></thead><tbody>';
+
+      data.forEach(row => {
+        html += '<tr>';
+        Object.values(row).forEach(val => html += `<td>${val}</td>`);
+        html += '</tr>';
+      });
+
+      html += '</tbody></table>';
+      document.getElementById('results').innerHTML = html;
+    }
+
+    function loadAll() {
+      fetch(`${API_URL}/data`)
+       .then(res => res.json())
+       .then(renderTable)
+       .catch(err => document.getElementById('results').innerHTML = 'Error loading data');
+    }
+
+    function search() {
+      const name = document.getElementById('searchName').value;
+      const role = document.getElementById('searchRole').value;
+      const params = new URLSearchParams();
+      if (name) params.append('Name', name);
+      if (role) params.append('Role', role);
+
+      fetch(`${API_URL}/search?${params}`)
+       .then(res => res.json())
+       .then(renderTable)
+       .catch(err => document.getElementById('results').innerHTML = 'Error searching');
+    }
+
+    // Load all on start
+    loadAll();
+
+    // Search on Enter key
+    document.getElementById('searchName').addEventListener('keyup', e => {
+      if (e.key === 'Enter') search();
+    });
+    document.getElementById('searchRole').addEventListener('keyup', e => {
+      if (e.key === 'Enter') search();
+    });
+  </script>
+</body>
+</html>

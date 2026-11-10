@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio Data</title>
+    <style>
+        body {
+            font-family: 'Algerian', sans-serif;
+            color: #000;
+            background-color: #dedfff;
+            background-image: url("https://images.unsplash.com/photo-1579546929518-9e396f3cc809"); /* Replaced with a reliable placeholder URL */
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+            margin: 20px;
+            padding: 20px;
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #000;
+            text-align: center;
+            text-decoration: underline;
+        }
+        
+        h2 {
+            color: #000;
+            text-align:center;
+            text-decoration: underline;
+        }
+        
+        .hr-row {
+            width: 100%;
+            height: 5px;
+            background-color: #00ffff;
+            border: none;
+            margin-top: 20px;
+        }
+        
+        input[type=text], input[type=email], input[type=password], input[type=number], input[type=tel], select, textarea {
+            padding: 6px;
+            border: 2px solid #00f;
+            border-radius: 7px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input[type=radio], input[type=checkbox] {
+            margin-right: 8px;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .oddities-section {
+            margin-top: 10px;
+        }
+				    .progress-bar{
+ 													position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 90%;
+  height: 15px;
+  background-color:transparent; /* Adjust color to match your theme */
+  color: #ffffff;
+  border: none;
+  border-radius:14%; /* Smooth rounded corners matching your image */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor:busy; /* Shows a hand icon indicating it can be dragged */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* Ensures it stays on top of other content */
+				    }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <img id="logo" alt="browser's logo" class="logo-image" src=url("https://photos.app.goo.gl/pE31Sjs2Nci9GhBW6")>
+        
+        <h1>JOIN NOW <i>*IT'S FREE*</i></h1>
+        <h2><b>**FIRST FILL UP THE FORM**</b></h2>
+
+        <form id="BioForm" method="POST" enctype="multipart/form-data">
+            <ol>
+                <li>
+                    <label Mechanical for="username">Name:</label><br>
+                    <input type="text" id="username" name="username" placeholder="Enter Name here" required>
+                </li>
+                <li>
+                    <label>Full Name:</label><br>
+                    <input type="text" id="full name" placeholder="Enter full name here" required="full name"
+                </li>
+
+                <li>
+                    <label>Gender:</label><br>
+                    <input type="radio" id="male" name="gender" value="male" required>
+                    <label for="male">Male</label><br>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                </li>
+                 
+                <li>
+                    <label for="email">Email Address:</label><br>
+                    <input type="email" id="email" name="email" placeholder="eg:- Example@gmail.com" required>
+                </li>
+                 
+                <li>
+                    <label for="pwd">Password:</label><br>
+                    <input type="password" id="pwd" name="password" placeholder="Enter your password" required>
+                    <br>
+                    <input type="checkbox" id="toggle">
+                    <label for="toggle">Show password</label>
+                </li>
+                 
+                <li>
+                    <label for="religion">Religion:</label><br>
+                    <select id="religion" name="religion" required>
+                        <option value="" disabled selected>Select your religion</option>
+                        <option value="Christianity">Christianity</option>
+                        <option value="Hindu">Hindu</option>
+                        <option value="Muslim">Muslim</option>
+                        <option value="other">Other</option>
+                    </select>
+                </li>
+
+                <li>
+                    <label for="address">Address:</label><br>
+                    <input type="text" id="address" name="address" placeholder="Address" required>
+                </li>
+
+                <li>
+                    <label for="age">Age:</label><br>
+                    <input type="number" id="age" name="age" min="12" max="89" placeholder="Age" required>
+                </li>
+
+                <li>
+                    <label for="contno">Contact number:</label><br>
+                    <input type="tel" id="contno" name="contno" placeholder="Contact Number" required>
+                </li>
+                 
+                <li>
+                    <label>Any body oddities:</label>
+                    <div class="oddities-section">
+                        <button type="button" onclick="toggleText()" id="show">Yes</button>
+                        <small><i>click yes if you have otherwise don't click....thanks...</i></small>
+                    </div>
+                     
+                    <div id="entry" style="display:none; margin-top: 10px;">  
+                        <label for="odds">Please describe it a little here.</label><br>
+                        <textarea id="odds" name="odds" placeholder="Description"></textarea>
+                    </div> 
+            </ol>
+
+            <div style="margin-left: 20px;">
+                <input type="checkbox" name="true_declaration" id="true" required>
+                <label for="true">Everything I have entered is to the best of my knowledge and is also true for any legal action.</label>
+                <br><br>
+                <input type="checkbox" name="terms_agreement" id="term" required>
+                <label for="term">I have <i><u>agreed</u></i> to the terms and conditions applied.</label>
+                <br><br>
+                <button type="submit"><i><b><u>Next</u></b></i></button>
+            </div>
+
+            <hr class="hr-row">
+        </form>
+         
+        <div style="margin-top: 20px; text-align: center;">
+            <p>ALREADY A MEMBER? <a href="log in.html" target="_blank">JUST LOG IN!!</a></p>
+            <p>Want to reset entry? Just <button type="reset" form="form" onclick="location.reload();"><u><i><b>Click</b></i></u></button> here...</p>
+        </div>
+    </div>
+    <div class="progress-bar">
+        <progress id="bio-progress" value="0" max="9" ></progress>
+    </div>
+    <script>
+        // Password visibility toggle
+        const passwordInput = document.getElementById('pwd');
+        const toggleCheckbox = document.getElementById('toggle');
+         
+        toggleCheckbox.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+        });
+
+        // Toggle text area for body oddities
+        function toggleText() { 
+            var x = document.getElementById("entry"); 
+            if (x.style.display === "none") { 
+                x .style.display = "block"; 
+            } else {
+                x.style.display = "none";
+            }
+        } 
+    
+const form = document.querySelector('form');
+const progressBar = document.getElementById('bio-progress');
+
+form.addEventListener('input', () => {
+    let filledCount = 0;
+    const inputs = form.querySelectorAll('input, select, textarea');
+    
+    inputs.forEach(input => {
+        if (input.type === 'checkbox' || input.type === 'radio') {
+            if (input.checked) { filledCount++; }
+        } else if (input.value.trim() !== '') {
+            filledCount++;
+        }
+    });
+    
+    progressBar.value = filledCount;
+});
+
+document.getElementById('BioForm').addEventListener('submit', function(event) {
+    // 1. Prevent the page from just reloading or jumping to a JSON file
+    event.preventDefault();
+
+    // 2. Gather the data from your form fields
+    // (Make sure the IDs match the actual ID attributes on your input tags)
+    const formData = {
+        id: Date.now(), // Creates a unique ID based on the timestamp
+        username: document.getElementById('username')?.value || '',
+        email: document.getElementById('email')?.value || '',
+        password:document.getElementById('pwd')?.value || ",
+        // Add any other fields you have here
+    };
+
+    // 3. Get existing entries from localStorage, or start a new array if empty
+    let database = JSON.parse(localStorage.getItem('userDatabase')) || [];
+
+    // 4. Push the new entry into our local "database"
+    database.push(formData);
+
+    // 5. Save it back to localStorage as a text string
+    localStorage.setItem('userDatabase', JSON.stringify(database));
+
+    // 6. Optional: Alert the user and reset the form
+    alert('Data saved successfully!');
+    this.reset();
+    
+    // If you have a progress bar reset function, you can call it here
+});
+
+
+    </script>
+</body>
+</html>
